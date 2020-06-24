@@ -72,9 +72,9 @@ public class TextAnalyzer {
     
         for(Map.Entry<String, Integer> entry:list){
         	
-        // String[] arr = new String[20]; //needs to only output top 20 elements
-        	if(entry.getValue() >= 8) {
-            System.out.println(entry.getKey()+" : "+entry.getValue());
+        if(entry.getValue() >= 8 && count < 20) {
+        		count++;
+        		System.out.println(entry.getKey()+" : "+entry.getValue());
         	}
         }
     }
