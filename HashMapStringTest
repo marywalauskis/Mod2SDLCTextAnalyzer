@@ -1,0 +1,46 @@
+package application;
+
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.is;
+
+
+import java.util.HashMap;
+import org.junit.jupiter.api.Test;
+
+class HashMapStringIntTest {
+
+	HashMap<String, Integer> testMap = new HashMap<String, Integer>();
+	
+	@Test
+	void test() {
+		this.testMap.put("nevermore", 5);
+		this.testMap.put("the", 3);
+		this.testMap.put("if", 7);
+		
+		HashMap<String, Integer> expected = new HashMap<String, Integer>();
+		expected.put("nevermore", 5);
+		expected.put("if", 7);
+		expected.put("the", 3);
+		
+		assertThat(this.testMap.entrySet(), is(expected.entrySet()));
+		
+	}
+	
+	void valueTest() {
+		assertThat(this.testMap.containsValue("nevermore"), is(false));
+		assertThat(this.testMap.containsValue("the"), is(false));
+		assertThat(this.testMap.containsValue("if"), is(false));
+		
+		this.testMap.put("nevermore", 5);
+		this.testMap.put("the", 3);
+		this.testMap.put("if", 7);
+		
+		assertThat(this.testMap.containsValue("nevermore"), is(true));
+		assertThat(this.testMap.containsValue("if"), is(true));
+		assertThat(this.testMap.containsValue("the"), is(true));
+		
+		
+	}
+	
+
+}
